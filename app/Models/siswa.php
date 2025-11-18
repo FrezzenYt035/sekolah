@@ -4,7 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class siswa extends Model
+class Siswa extends Model
 {
-    //
+    protected $table = 'siswa';
+    protected $fillable = ['nama', 'kelas_id'];
+
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class);
+    }
 }
+

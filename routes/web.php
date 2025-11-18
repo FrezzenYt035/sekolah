@@ -3,11 +3,18 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SiswaController;
 
 // Halaman utama
 Route::get('/', function () {
     return view('user.beranda');
 })->middleware(['auth', 'verified'])->name('beranda');
+
+// Route::get('/dummy', function () {
+//     return view('dummy');
+// })->middleware(['auth', 'verified'])->name('dummy');
+
+Route::get('/dummy', [SiswaController::class, 'index'])->name('dummy');
 
 // Halaman statis lainnya
 Route::get('/biodata', fn() => view('biodata'))->middleware(['auth', 'verified'])->name('biodata');

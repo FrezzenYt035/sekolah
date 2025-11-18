@@ -14,10 +14,12 @@ class SiswaFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
-    {
-        return [
-            //
-        ];
-    }
+    public function definition()
+{
+    return [
+        'nama' => $this->faker->name(),
+        'nis' => $this->faker->unique()->numerify('2025###'),
+        'kelas_id' => Kelas::inRandomOrder()->first()->id ?? Kelas::factory(),
+    ];
+}
 }
