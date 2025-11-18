@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Kelas;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Siswa>
@@ -15,11 +16,11 @@ class SiswaFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition()
-{
-    return [
-        'nama' => $this->faker->name(),
-        'nis' => $this->faker->unique()->numerify('2025###'),
-        'kelas_id' => Kelas::inRandomOrder()->first()->id ?? Kelas::factory(),
-    ];
-}
+    {
+        return [
+            'nama' => $this->faker->name(),
+            'nis' => $this->faker->unique()->numerify('2025###'),
+            'kelas_id' => Kelas::inRandomOrder()->first()->id ?? Kelas::factory(),
+        ];
+    }
 }
